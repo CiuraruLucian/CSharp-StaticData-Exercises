@@ -20,7 +20,7 @@ namespace StaticData
             SavingsAccount s2 = new SavingsAccount(100);
 
             // Should print 0.08...right??
-            Console.WriteLine("Interest Rate is: {0}", SavingsAccount.GetInterestRate());
+            Console.WriteLine("Interest Rate is: {0}", SavingsAccount.InterestRate);
 
             /*
             // Make new object, this does NOT ’reset’ the interest rate.
@@ -40,7 +40,7 @@ namespace StaticData
         public double currBalance;
 
         //A static point of data.
-        public static double currInterestRate;
+        public static double currInterestRate = 0.04;
 
         // Notice that our constructor is setting
         // the static currInterestRate value.
@@ -67,6 +67,12 @@ namespace StaticData
         {
             currInterestRate = newRate;
 
+        }
+        // A static property
+        public static double InterestRate
+        {
+            get { return currInterestRate; } 
+            set { currInterestRate = value; }
         }
     }
 }
